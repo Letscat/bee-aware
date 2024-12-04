@@ -1,19 +1,8 @@
-# Event-Driven Architecture Starter
 
-This is an event-driven microservices application using Pub/Sub for asynchronous communication between services.
+## Introduction | Bee-Aware
+Bee-Aware is a Project built with Encore.dev and Svelte.
+Its target is to create an easy to setup a camera / motion-detection-system. Its main purpose (as you mightve already guessed from the name) is to detect the activity from bees. But it also can serve as a cheap and easy to use security system.
 
-The example in this starter is an Uptime Monitoring System that continuously monitors the uptime of a list of websites. 
-
-When it detects a website is down, it posts a Slack message notifying that the website is down, and another message when the website is back up again.
-
-It has a react frontend and you can try a demo version [here](https://uptime.encore.build/).
-
-![Frontend](https://encore.dev/assets/tutorials/uptime/frontend.png)
-![Architecture](https://encore.dev/assets/tutorials/uptime/encore-flow.png)
-
-## Build from scratch with a tutorial
-
-If you prefer, check out the [tutorial](https://encore.dev/docs/go/tutorials/uptime) to learn how to build this application from scratch.
 
 ## Prerequisites 
 
@@ -26,13 +15,6 @@ If you prefer, check out the [tutorial](https://encore.dev/docs/go/tutorials/upt
 1. Install [Docker](https://docker.com)
 2. Start Docker
 
-## Create app
-
-Create a local app from this template:
-
-```bash
-encore app create my-app-name --example=uptime
-```
 
 ## Run app locally
 
@@ -96,30 +78,6 @@ Learn more in the [CLI docs](https://encore.dev/docs/go/cli/cli-reference#databa
 ### Self-hosting
 
 See the [self-hosting instructions](https://encore.dev/docs/go/self-host/docker-build) for how to use `encore build docker` to create a Docker image and configure it.
-
-### Encore Cloud Platform
-
-Deploy your application to a free staging environment in Encore's development cloud using `git push encore`:
-
-```bash
-git add -A .
-git commit -m 'Commit message'
-git push encore
-```
-
-You can also open your app in the [Cloud Dashboard](https://app.encore.dev) to integrate with GitHub, or connect your AWS/GCP account, enabling Encore to automatically handle cloud deployments for you.
-
-## Link to GitHub
-
-Follow these steps to link your app to GitHub:
-
-1. Create a GitHub repo, commit and push the app.
-2. Open your app in the [Cloud Dashboard](https://app.encore.dev).
-3. Go to **Settings ➔ GitHub** and click on **Link app to GitHub** to link your app to GitHub and select the repo you just created.
-4. To configure Encore to automatically trigger deploys when you push to a specific branch name, go to the **Overview** page for your intended environment. Click on **Settings** and then in the section **Branch Push** configure the **Branch name** and hit **Save**.
-5. Commit and push a change to GitHub to trigger a deploy.
-
-[Learn more in the docs](https://encore.dev/docs/platform/integrations/github)
 
 ## Testing
 
