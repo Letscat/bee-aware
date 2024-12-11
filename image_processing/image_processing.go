@@ -55,13 +55,18 @@ func ImageToGrayscalePixels(img image.Image) [][]uint8 {
 
 func StackBlur(pixels *[][]uint8, kernelSize int) {
 	radius := kernelSize / 2
-
+	var wg sync.WaitGroup
 	for pixelX := 0; pixelX < len(*pixels); pixelX++ {
-		for pixelY := 0; pixelY < len((*pixels)[pixelX]); pixelY++ {
-			sum := calculateWeightedSum(pixels, pixelX, pixelY, radius, kernelSize)
-			(*pixels)[pixelX][pixelY] = sum / uint8(kernelSize*kernelSize)
-		}
+		wg.Add(1)
+		go func(pixelX int) {
+			defer wg.Done()
+			for pixelY := 0; pixelY < len((*pixels)[pixelX]); pixelY++ {
+				sum := calculateWeightedSum(pixels, pixelX, pixelY, radius, kernelSize)
+				(*pixels)[pixelX][pixelY] = sum / uint8(kernelSize*kernelSize)
+			}
+		}(pixelX)
 	}
+	wg.Wait()
 }
 
 func calculateWeightedSum(pixels *[][]uint8, pixelX, pixelY, radius, kernelSize int) uint8 {
