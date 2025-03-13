@@ -29,7 +29,8 @@
 // Fetch cameras and images on mount
 onMount(async () => {
    if (!pb.authStore.isValid) {
-      return;
+      window.location.href="#/login";
+      return
    }
    try {
       fileToken = await pb.files.getToken();
