@@ -22,6 +22,8 @@ func main() {
 	app.OnServe().BindFunc(func(se *core.ServeEvent) error {
 		// serves static files from the provided public dir (if exists)
 		se.Router.GET("/frontend/{path...}", apis.Static(os.DirFS("./frontend/dist/"), false))
+		se.Router.GET("/mobile/{path...}", apis.Static(os.DirFS("./mobile/build/"), false))
+
 		se.Router.GET("/{path...}", apis.Static(os.DirFS("./pb_public"), false))
 		// register "POST /api/myapp/settings" route (allowed only for authenticated users)
 		se.Router.POST("/api/motion_detection", func(e *core.RequestEvent) error {
